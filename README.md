@@ -1,2 +1,0 @@
-lippman-schwinger-qd
-====================
