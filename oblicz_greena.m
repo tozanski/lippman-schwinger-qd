@@ -6,11 +6,9 @@
 
 %assure following variables are defined
 L;
-uL;uS;uR;
+U;
 N;
 m;
-
-U = uL:uS:uR;
 
 result = zeros( size(y,1),size(y,2),length(U) );
 
@@ -31,4 +29,4 @@ for i = 1:length(U)
 	result(:,:,i) = y;
 end
 
-save -binary result.dat result
+save -binary result.dat result U
