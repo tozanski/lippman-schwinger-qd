@@ -51,5 +51,7 @@ for i in xrange(jobs):
 	desc_filename = jobs_dir + 'job_desc%d.sh' % i
 	f = file(desc_filename,'w')
 	f.write(file_content)
+	f.close()
+	call(['qcg-sub',desc_filename])
 
 
