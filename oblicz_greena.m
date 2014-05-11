@@ -16,7 +16,7 @@ for i = 1:length(U)
 
 	u = U(i);
 
-	fun = @(r1,r2) calka( u, r1, r2, m);
+	fun = @(r1,r2) nowa_calka( n, r1, r2, u);
 	ferr =@(s, x)  NaN;
 
 	rs = linspace(0,L,N);

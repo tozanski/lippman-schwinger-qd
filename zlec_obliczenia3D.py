@@ -21,8 +21,8 @@ file_template = """\
 #QCG nodes=1:1
 
 
-#QCG stage-in-file=calka.oct -> calka.oct
-#QCG stage-in-file=oblicz3D.m -> oblicz3D.m
+#QCG stage-in-file=nowa_calka.m -> nowa_calka.m
+#QCG stage-in-file=oblicz_greena.m -> oblicz_greena.m
 
 #QCG stage-out-file=result.dat -> %s
 
