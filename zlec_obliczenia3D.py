@@ -4,12 +4,12 @@ from numpy import arange
 from os import mkdir
 from subprocess import call
 
-N = 20;
-L = 30;
+N = 151;
+L = 15;
 m = 0;
 
-U = list(arange(0.5,31,1));
-jobs = 4;
+U = list(arange(0.1,6,0.1));
+jobs = 60;
 
 file_template = """\
 #!/bin/bash				 
@@ -17,7 +17,7 @@ file_template = """\
 
 #QCG host=zeus
 #QCG queue=plgrid
-##QCG walltime = PT1H
+#QCG walltime = PT6H
 #QCG nodes=1:1
 
 
