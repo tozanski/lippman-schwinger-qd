@@ -4,12 +4,21 @@ from numpy import arange
 from os import mkdir
 from subprocess import call
 
+<<<<<<< HEAD
 N = 101;
 L = 10;
 m = 0;
 
 U = list(linspace(0.1,30,10));
 jobs = 10;
+=======
+N = 151;
+L = 15;
+m = 0;
+
+U = list(arange(0.1,6,0.1));
+jobs = 60;
+>>>>>>> 13904509af74c88eae0ba07dc739c188cc9db63f
 
 file_template = """\
 #!/bin/bash				 
@@ -17,11 +26,15 @@ file_template = """\
 
 #QCG host=zeus
 #QCG queue=plgrid
-##QCG walltime = PT1H
+##QCG walltime = PT6H
 #QCG nodes=1:1
 
 
+<<<<<<< HEAD
 #QCG stage-in-file=calka.oct -> calka.oct
+=======
+#QCG stage-in-file=nowa_calka.m -> nowa_calka.m
+>>>>>>> 13904509af74c88eae0ba07dc739c188cc9db63f
 #QCG stage-in-file=oblicz_greena.m -> oblicz_greena.m
 
 #QCG stage-out-file=result.dat -> %s
@@ -51,7 +64,13 @@ for i in xrange(jobs):
 	desc_filename = jobs_dir + 'job_desc%d.sh' % i
 	f = file(desc_filename,'w')
 	f.write(file_content)
+<<<<<<< HEAD
 	f.flush()
 	f.close()
 	call(['qcg-sub',desc_filename]);
+=======
+	f.close()
+	call(['qcg-sub',desc_filename])
+
+>>>>>>> 13904509af74c88eae0ba07dc739c188cc9db63f
 

@@ -10,13 +10,17 @@ U;
 N;
 m;
 
+<<<<<<< HEAD
 result = zeros( N,N,length(U) );
+=======
+result = zeros( size(y,1),size(y,2),length(U) );
+>>>>>>> 13904509af74c88eae0ba07dc739c188cc9db63f
 
 for i = 1:length(U)
 
 	u = U(i);
 
-	fun = @(r1,r2) calka( u, r1, r2, m);
+	fun = @(r1,r2) nowa_calka( n, r1, r2, u);
 	ferr =@(s, x)  NaN;
 
 	rs = linspace(0,L,N);
@@ -29,4 +33,4 @@ for i = 1:length(U)
 	result(:,:,i) = y;
 end
 
-save -binary result.dat result
+save -binary result.dat result U

@@ -1,10 +1,10 @@
 
 L = [0.0,10.0]; 
 N = 101;
-u = 0.01;
+u = 1;
 n = 0;
 
-fun = @(r1,r2) calka( u, r1, r2, n);
+fun = @(r1,r2) nowa_calka( n, r1, r2, u);
 
 function y = ferr (s, x), y = NaN; endfunction
 
@@ -14,7 +14,9 @@ rs = linspace(L(1),L(2),N);
 r1 = repmat( rs', 1, N );
 r2 = repmat( rs, N, 1 );
 
+tic;
 [y] = arrayfun(fun, r1, r2,"ErrorHandler",@ferr);
+toc;
 
 imagesc( rs, rs, abs(y) );
 
