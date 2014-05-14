@@ -9,5 +9,6 @@
 #QCG module=apps/octave
 #QCG module=libs/gsl
 
+#QCG notify=mailto:tomasz.ozanski@pwr.wroc.pl
 
 bash

@@ -4,12 +4,21 @@ from numpy import arange
 from os import mkdir
 from subprocess import call
 
+<<<<<<< HEAD
+N = 101;
+L = 10;
+m = 0;
+
+U = list(linspace(0.1,30,10));
+jobs = 10;
+=======
 N = 151;
 L = 15;
 m = 0;
 
 U = list(arange(0.1,6,0.1));
 jobs = 60;
+>>>>>>> 13904509af74c88eae0ba07dc739c188cc9db63f
 
 file_template = """\
 #!/bin/bash				 
@@ -21,7 +30,11 @@ file_template = """\
 #QCG nodes=1:1
 
 
+<<<<<<< HEAD
+#QCG stage-in-file=calka.oct -> calka.oct
+=======
 #QCG stage-in-file=nowa_calka.m -> nowa_calka.m
+>>>>>>> 13904509af74c88eae0ba07dc739c188cc9db63f
 #QCG stage-in-file=oblicz_greena.m -> oblicz_greena.m
 
 #QCG stage-out-file=result.dat -> %s
@@ -33,9 +46,9 @@ file_template = """\
 #QCG module=apps/octave
 #QCG module=libs/gsl
 
-#QCG notify=mailto:tomasz.ozanski@pwr.wroc.pl
+#QCG notify=xmpp:tomaszoz@gmail.com
 
-octave --eval "%s"
+octave --eval "%s" 2>/dev/null
 """
 
 octave_args_template = "N=%d, L=%f, U=%s, m=%f, oblicz_greena"
@@ -46,12 +59,18 @@ jobs_dir = '../jobs/'
 for i in xrange(jobs):
 	jobU = U[i::len(U)/jobs]
 	args = octave_args_template % (N,L,str(jobU),m,)
-	result_path = "../lippmann-schwinger-qd_wyniki/slice%05d.dat" % i
+	result_path = "../slice%05d.dat" % i
 	file_content = file_template % (result_path,args)
 	desc_filename = jobs_dir + 'job_desc%d.sh' % i
 	f = file(desc_filename,'w')
 	f.write(file_content)
+<<<<<<< HEAD
+	f.flush()
+	f.close()
+	call(['qcg-sub',desc_filename]);
+=======
 	f.close()
 	call(['qcg-sub',desc_filename])
 
+>>>>>>> 13904509af74c88eae0ba07dc739c188cc9db63f
 
