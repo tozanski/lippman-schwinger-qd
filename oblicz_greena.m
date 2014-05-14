@@ -6,13 +6,11 @@
 
 %assure following variables are defined
 L;
-uL;uS;uR;
+U;
 N;
 m;
 
-U = uL:uS:uR;
-
-result = zeros( size(y,1),size(y,2),length(U) );
+result = zeros( N,N,length(U) );
 
 for i = 1:length(U)
 
@@ -26,7 +24,7 @@ for i = 1:length(U)
 	r1 = repmat( rs', 1, N );
 	r2 = repmat( rs, N, 1 );
 
-	[y] = arrayfun(fun, r1, r2,"ErrorHandler",@ferr);
+	[y] = arrayfun(fun, r1, r2,"ErrorHandler",ferr);
 
 	result(:,:,i) = y;
 end
