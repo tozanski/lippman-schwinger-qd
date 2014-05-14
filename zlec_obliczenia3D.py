@@ -8,7 +8,7 @@ N = 151;
 L = 15;
 m = 0;
 
-U = list(arange(0.1,6,0.1));
+U = list(arange(0.1,6.1,0.1));
 jobs = 60;
 
 file_template = """\
