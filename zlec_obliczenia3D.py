@@ -17,7 +17,7 @@ file_template = """\
 
 #QCG host=zeus
 #QCG queue=plgrid
-##QCG walltime = PT6H
+###QCG walltime = PT6H
 #QCG nodes=1:1
 
 
